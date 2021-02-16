@@ -7,7 +7,7 @@ public interface BagInterface<T>
 		@return  The integer number of entries currently in the bag. */
 	public int getCurrentSize();
 	/** Sees whether this bag is empty.
-	    @return  True if the bag is empty, or false if not. */
+	    @return  True if the bag is empty, or false if not */
 	public boolean isEmpty();
 	/** Adds a new entry to this bag.
 	    @param newEntry  The object to be added as a new entry.
