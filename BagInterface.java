@@ -2,10 +2,6 @@
 public interface BagInterface<T>
 {
     /** An interface that describes the operations of a bag of objects. */
-
-	public void ArrayBag(); 
-
-	public void ArrayBag(int desiredCapacity);
 	
 	/** Checks if the ArrayBag is not corrupt     
 	 	@return  throws exception if the integrity is not there*/
