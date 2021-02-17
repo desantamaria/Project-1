@@ -1,14 +1,22 @@
-
+import java.util.Arrays;
 
 public class ArrayBag<T> implements BagInterface<T>
 {
-    private final T[] bag;
+    private T[] bag;
     private static final int DEFUALT_CAPACITY = 25;
     private int numOfEntries;
 
     private boolean integrityOK;
     private int MAX_CAPACITY = 30;
 
+    public ArrayBag() 
+    {
+        numOfEntries = 0;
+        @SuppressWarnings("unchecked")
+        T[] tempBag = (T[])new Object[DEFUALT_CAPACITY];
+        bag = tempBag;
+    }
+    
     public ArrayBag(int desiredCapacity)
     {
         if(desiredCapacity <= MAX_CAPACITY)
@@ -33,6 +41,7 @@ public class ArrayBag<T> implements BagInterface<T>
     {
         return numOfEntries;
     }
+    
     public boolean isEmpty()
 	{
         return numOfEntries==0;
@@ -49,7 +58,7 @@ public class ArrayBag<T> implements BagInterface<T>
         boolean result = true;
         if (isFull())
         {
-            result = false;
+            doubleCapacity();
         }
         else
         {
@@ -67,7 +76,12 @@ public class ArrayBag<T> implements BagInterface<T>
             + " maximum of "+ MAX_CAPACITY);
     }
 
-    //Slide 47
+    private void doubleCapacity()
+    {
+        int newLength = 2 * bag.length;
+        checkCapacity(newLength);
+        bag = Arrays.copyOf(bag, newLength);
+    }
 
     public T remove()
 	{

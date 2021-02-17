@@ -3,12 +3,21 @@ public interface BagInterface<T>
 {
     /** An interface that describes the operations of a bag of objects. */
 
+	public void ArrayBag(); 
+
+	public void ArrayBag(int desiredCapacity);
+	
+	/** Checks if the ArrayBag is not corrupt     
+	 	@return  throws exception if the integrity is not there*/
+	public void checkIntegrity();	
 	/** Gets the current number of entries in this bag.
 		@return  The integer number of entries currently in the bag. */
 	public int getCurrentSize();
 	/** Sees whether this bag is empty.
 	    @return  True if the bag is empty, or false if not */
 	public boolean isEmpty();
+
+	public boolean isFull();
 	/** Adds a new entry to this bag.
 	    @param newEntry  The object to be added as a new entry.
 	    @return  True if the addition is successful, or false if not. */
@@ -33,7 +42,7 @@ public interface BagInterface<T>
 	/** Retrieves all entries that are in this bag.
 		@return  A newly allocated array of all the entries in the bag. Note: If the bag is empty, the returned array is empty. */
 	public T[] toArray();
-} // end BagInterface
+}
 
 
 
