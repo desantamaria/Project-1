@@ -5,8 +5,10 @@ CS2600
  */
 public class ArrayBagTest
 {
-    public static void main(String[] args)
-    {
-        System.out.println("hello");
-     }
+    public static void main(String[] args) 
+	{
+        System.out.println("Creating an empty bag.");
+        BagInterface<String> aBag = new ResizeableArrayBag<>();
+        System.out.println(aBag.isEmpty());
+	}
 }
