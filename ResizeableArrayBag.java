@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class ArrayBag<T> implements BagInterface<T>
+public class ResizeableArrayBag<T> implements BagInterface<T>
 {
     private T[] bag;
     private static final int DEFUALT_CAPACITY = 25;
@@ -9,7 +9,7 @@ public class ArrayBag<T> implements BagInterface<T>
     private boolean integrityOK;
     private int MAX_CAPACITY = 30;
 
-    public ArrayBag() 
+    public ResizeableArrayBag() 
     {
         numOfEntries = 0;
         @SuppressWarnings("unchecked")
@@ -17,7 +17,7 @@ public class ArrayBag<T> implements BagInterface<T>
         bag = tempBag;
     }
     
-    public ArrayBag(int desiredCapacity)
+    public ResizeableArrayBag(int desiredCapacity)
     {
         if(desiredCapacity <= MAX_CAPACITY)
         {
