@@ -178,18 +178,23 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
         return result;
     }
 
-    public BagInterface<T> union(BagInterface<T> bag2)
+    public T bagContent(int index)
+    {
+        return bag[index];
+    }
+
+    public ResizeableArrayBag<T> union(ResizeableArrayBag<T> bag2)
     {
         checkIntegrity();
-        BagInterface<T> eveything = new ResizeableArrayBag<>();
+        ResizeableArrayBag<T> eveything = new ResizeableArrayBag<>();
 
         for (int index = 0; index < this.getCurrentSize(); index++) 
         {
-            //eveything.add();
+            eveything.add(bag [index]);
         }
         for (int index = 0; index < bag2.getCurrentSize(); index++) 
         {
-            //eveything.add();
+            eveything.add(bag2.bagContent(index));
         }
         return eveything;
     } 
@@ -199,6 +204,23 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
         checkIntegrity();
         BagInterface<T> commonItems = new ResizeableArrayBag<>();
 
+        if(this.getCurrentSize() > bag2.getCurrentSize())
+        {
+            for (int index = 0; index < this.getCurrentSize(); index++) 
+            {
+                if(bag2.contains(bag [index]))
+                    commonItems.add(bag [index]);    
+            }
+        }
+        else
+        {
+            for (int index = 0; index < bag2.getCurrentSize(); index++) 
+            {
+                if(this.contains(bag [index]))
+                    commonItems.add(bag [index]);    
+            }
+        }
+
         return commonItems;
     }
 
@@ -207,6 +229,11 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
         checkIntegrity();
         BagInterface<T> leftOver = new ResizeableArrayBag<>();
 
+        for (int index = 0; index < this.getCurrentSize(); index++) 
+        {
+            if(!bag2.contains(bag [index]))
+                leftOver.add(bag [index]);    
+        }
         return leftOver;
     }
     
