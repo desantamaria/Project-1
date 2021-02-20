@@ -58,7 +58,7 @@ public interface BagInterface<T>
 	 * @return An array of all of the entries in both bags.
 	*/
 
-	public T interception(T anEntry);
+	public T intersection(T anEntry);
 	/** Retrieves the intersection (the entries that appear in both bags) of the two bags stated. Note: If an item occurs more than once in both bags the number of items that is shared by both will be included.
 	 * @param anEntry The second bag included in the intersection.
 	 * @return An array of every entry that is shared by both bags. */
