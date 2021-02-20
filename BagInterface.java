@@ -51,6 +51,22 @@ public interface BagInterface<T>
 		@return  A newly allocated array of all the entries in the bag. Note: If the bag is empty, the returned array is empty. */
 	
 	public T[] toArray();
+
+	public T union(T anEntry);
+	/**  Retrieves all entries that are in two bags.
+	 * @param anEntry The second bag included in the union.
+	 * @return An array of all of the entries in both bags.
+	*/
+
+	public T interception(T anEntry);
+	/** Retrieves the intersection (the entries that appear in both bags) of the two bags stated. Note: If an item occurs more than once in both bags the number of items that is shared by both will be included.
+	 * @param anEntry The second bag included in the intersection.
+	 * @return An array of every entry that is shared by both bags. */
+
+	public T difference(T anEntry);
+	/** Retrieves the difference of bag two (within the parameter) from bag one. 
+	 * @param anEntry The bag of items being taken away from bag one.
+	 * @return An array of every entry in the first bag minus every entry that also appears in bag two. */
 }
 
 
