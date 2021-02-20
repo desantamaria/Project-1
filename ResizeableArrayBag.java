@@ -1,3 +1,10 @@
+
+/**
+Daniel Santamaria, Hope Markley
+CS2600
+2/19/21 
+ */
+
 import java.util.Arrays;
 
 public class ResizeableArrayBag<T> implements BagInterface<T>
@@ -6,7 +13,7 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
     private static final int DEFUALT_CAPACITY = 25;
     private int numOfEntries;
 
-    private boolean integrityOK;
+    //private boolean integrityOK;
     private int MAX_CAPACITY = 30;
 
     public ResizeableArrayBag() 
@@ -33,8 +40,8 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
 
     public void checkIntegrity()
     {
-        if(!integrityOK)
-            throw new SecurityException("Array object is corrupt.");
+        //if(!integrityOK)
+            //throw new SecurityException("Array object is corrupt.");
     }
     
     public int getCurrentSize()
@@ -171,4 +178,36 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
         return result;
     }
 
+    public BagInterface<T> union(BagInterface<T> bag2)
+    {
+        checkIntegrity();
+        BagInterface<T> eveything = new ResizeableArrayBag<>();
+
+        for (int index = 0; index < this.getCurrentSize(); index++) 
+        {
+            //eveything.add();
+        }
+        for (int index = 0; index < bag2.getCurrentSize(); index++) 
+        {
+            //eveything.add();
+        }
+        return eveything;
+    } 
+
+    public BagInterface<T> intersection(BagInterface<T> bag2)
+    {
+        checkIntegrity();
+        BagInterface<T> commonItems = new ResizeableArrayBag<>();
+
+        return commonItems;
+    }
+
+    public BagInterface<T> difference(BagInterface<T> bag2)
+    {
+        checkIntegrity();
+        BagInterface<T> leftOver = new ResizeableArrayBag<>();
+
+        return leftOver;
+    }
+    
 }

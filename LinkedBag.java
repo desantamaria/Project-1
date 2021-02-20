@@ -1,12 +1,25 @@
+/**
+Daniel Santamaria, Hope Markley
+CS2600
+2/19/21 
+ */
 public class LinkedBag<T> implements BagInterface<T>
 {
     private Node firstNode;
     private int numberOfEntries;
+   
+    //private boolean integrityOK;
 
     public LinkedBag()
     {
         firstNode = null;
         numberOfEntries = 0;
+    }
+
+    public void checkIntegrity()
+    {
+        //if(!integrityOK)
+            //throw new SecurityException("Array object is corrupt.");
     }
 
     public boolean isEmpty()
@@ -21,6 +34,7 @@ public class LinkedBag<T> implements BagInterface<T>
 
     public boolean add(T newEntry)
     {
+        checkIntegrity();
         Node newNode = new Node(newEntry);
         newNode.next = firstNode; 
         
@@ -46,6 +60,7 @@ public class LinkedBag<T> implements BagInterface<T>
 
     public int getFrequencyOf(T anEntry)
     {
+        checkIntegrity();
         int frequency = 0;
         
         int counter = 0;
@@ -63,6 +78,7 @@ public class LinkedBag<T> implements BagInterface<T>
 
     public boolean contains(T anEntry)
     {
+        checkIntegrity();
         boolean found = false;
         Node currentNode = firstNode;
         while (!found && (currentNode != null))
@@ -101,6 +117,7 @@ public class LinkedBag<T> implements BagInterface<T>
 
     public T remove()
     {
+        checkIntegrity();
         T result = null;
         if (firstNode != null)
         {
@@ -113,6 +130,7 @@ public class LinkedBag<T> implements BagInterface<T>
 
     public boolean remove(T anEntry)
     {
+        checkIntegrity();
         boolean result = false;
         Node nodeN = getReferenceTo(anEntry);
         if (nodeN != null)
@@ -125,6 +143,38 @@ public class LinkedBag<T> implements BagInterface<T>
             result = true;
         }
         return result;
+    }
+
+    public BagInterface<T> union(BagInterface<T> bag2)
+    {
+        checkIntegrity();
+        BagInterface<T> eveything = new ResizeableArrayBag<>();
+
+        for (int index = 0; index < this.getCurrentSize(); index++) 
+        {
+            //eveything.add();
+        }
+        for (int index = 0; index < bag2.getCurrentSize(); index++) 
+        {
+            //eveything.add();
+        }
+        return eveything;
+    } 
+
+    public BagInterface<T> intersection(BagInterface<T> bag2)
+    {
+        checkIntegrity();
+        BagInterface<T> commonItems = new ResizeableArrayBag<>();
+
+        return commonItems;
+    }
+
+    public BagInterface<T> difference(BagInterface<T> bag2)
+    {
+        checkIntegrity();
+        BagInterface<T> leftOver = new ResizeableArrayBag<>();
+
+        return leftOver;
     }
 
     private class Node
