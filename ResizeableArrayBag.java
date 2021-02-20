@@ -171,4 +171,20 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
         return result;
     }
 
+    public T union(T anEntry){
+        T[] newBag = {};
+
+        for( )
+        
+        return newBag;
+    }
+
+    public T intersection(T anEntry){
+
+    }
+
+    public T difference(T anEntry){
+
+    }
+
 }
