@@ -181,7 +181,7 @@ public class LinkedBag<T> implements BagInterface<T>
     public BagInterface<T> intersection(BagInterface<T> bag2)
     {
         checkIntegrity();
-        BagInterface<T> commonItems = new ResizableArrayBag<>();
+        BagInterface<T> commonItems = new ResizeableArrayBag<>();
 
         if(this.getCurrentSize() > bag2.getCurrentSize())
         {
@@ -206,7 +206,7 @@ public class LinkedBag<T> implements BagInterface<T>
     public BagInterface<T> difference(BagInterface<T> bag2)
     {
         checkIntegrity();
-        BagInterface<T> leftOver = new ResizableArrayBag<>();
+        BagInterface<T> leftOver = new ResizeableArrayBag<>();
 
         for (int index = 0; index < this.getCurrentSize(); index++) 
         {

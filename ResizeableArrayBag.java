@@ -6,7 +6,7 @@ CS2600
 
 import java.util.Arrays;
 
-public class ResizableArrayBag<T> implements BagInterface<T>
+public class ResizeableArrayBag<T> implements BagInterface<T>
 {
     private T[] bag;
     private static final int DEFUALT_CAPACITY = 25;
@@ -15,7 +15,7 @@ public class ResizableArrayBag<T> implements BagInterface<T>
     //private boolean integrityOK;
     private int MAX_CAPACITY = 30;
 
-    public ResizableArrayBag() 
+    public ResizeableArrayBag() 
     {
         numberOfEntries = 0;
         @SuppressWarnings("unchecked")
@@ -23,7 +23,7 @@ public class ResizableArrayBag<T> implements BagInterface<T>
         bag = tempBag;
     }
     
-    public ResizableArrayBag(int desiredCapacity)
+    public ResizeableArrayBag(int desiredCapacity)
     {
         if(desiredCapacity <= MAX_CAPACITY)
         {
@@ -179,13 +179,18 @@ public class ResizableArrayBag<T> implements BagInterface<T>
 
     public T bagContent(int index)
     {
-        return bag[index];
+        @SuppressWarnings("unchecked")
+        T[] copyBag = (T[])new Object[numberOfEntries];
+        copyBag = bag;
+        
+        return copyBag[index];
+
     }
 
     public BagInterface<T> union(BagInterface<T> bag2)
     {
         checkIntegrity();
-        BagInterface<T> eveything = new ResizableArrayBag<T>();
+        BagInterface<T> eveything = new ResizeableArrayBag<T>();
 
         for (int index = 0; index < this.getCurrentSize(); index++) 
         {
@@ -201,13 +206,13 @@ public class ResizableArrayBag<T> implements BagInterface<T>
     public BagInterface<T> intersection(BagInterface<T> bag2)
     {
         checkIntegrity();
-        BagInterface<T> commonItems = new ResizableArrayBag<>();
+        BagInterface<T> commonItems = new ResizeableArrayBag<>();
 
-        if(this.getCurrentSize() > bag2.getCurrentSize())
+        if(this.getCurrentSize() >= bag2.getCurrentSize())
         {
             for (int index = 0; index < this.getCurrentSize(); index++) 
             {
-                if(bag2.contains(bag [index]))
+                if(!(bag2.getFrequencyOf(bag [index]) == 1))
                     commonItems.add(bag [index]);    
             }
         }
@@ -215,18 +220,17 @@ public class ResizableArrayBag<T> implements BagInterface<T>
         {
             for (int index = 0; index < bag2.getCurrentSize(); index++) 
             {
-                if(this.contains(bag [index]))
-                    commonItems.add(bag2.bagContent(index));    
-            }
+                if(this.getFrequencyOf(bag2.bagContent(index)) == 1)    
+                    commonItems.add(bag2.bagContent(index));
+            } 
         }
-
         return commonItems;
     }
 
     public BagInterface<T> difference(BagInterface<T> bag2)
     {
         checkIntegrity();
-        BagInterface<T> leftOver = new ResizableArrayBag<>();
+        BagInterface<T> leftOver = new ResizeableArrayBag<>();
 
         for (int index = 0; index < this.getCurrentSize(); index++) 
         {
