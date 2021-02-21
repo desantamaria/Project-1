@@ -148,6 +148,9 @@ public class LinkedBag<T> implements BagInterface<T>
     public BagInterface<T> union(BagInterface<T> bag2)
     {
         checkIntegrity();
+
+        //INCOMPLETE ** ERASE COMMENT ONCE FINISHED
+        
         BagInterface<T> eveything = new ResizeableArrayBag<>();
 
         for (int index = 0; index < this.getCurrentSize(); index++) 
@@ -164,6 +167,9 @@ public class LinkedBag<T> implements BagInterface<T>
     public BagInterface<T> intersection(BagInterface<T> bag2)
     {
         checkIntegrity();
+
+        //INCOMPLETE ** ERASE COMMENT ONCE FINISHED
+
         BagInterface<T> commonItems = new ResizeableArrayBag<>();
 
         return commonItems;
@@ -172,6 +178,9 @@ public class LinkedBag<T> implements BagInterface<T>
     public BagInterface<T> difference(BagInterface<T> bag2)
     {
         checkIntegrity();
+
+        //INCOMPLETE ** ERASE COMMENT ONCE FINISHED
+
         BagInterface<T> leftOver = new ResizeableArrayBag<>();
 
         return leftOver;

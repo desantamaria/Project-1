@@ -21,6 +21,19 @@ public class ArrayBagTest
 		String[] contentsOfBag2 = {"A", "B", "A", "C", "B", "C", "D",
                                  "another string"};
 		testAdd(aBag, contentsOfBag2);
+
+        //Testing the union method
+
+
+        //Testing the intersection method
+
+
+        //Testing the difference method
+
+
+        //INCOMPLETE ** ERASE COMMENT ONCE FINISHED
+
+
 	} // end main
 	
     // Tests the method add.
@@ -39,6 +52,20 @@ public class ArrayBagTest
       
 		displayBag(aBag);
 	} // end testAdd
+
+    private static void testUnion(bagInterface<String> firstBag, String[] firstContent, bagInterface<String> secBag, String[] secContent){
+        System.out.print("Unifying the followling bags:\nBag 1: ");
+        //printing first bag
+        
+        for(int index = 0; index < firstContent.length; index++){
+            System.out.print(firstContent[index] + " ");
+        }
+        System.out.print("\nBag 2: ");
+
+        for(int index = 0; index < secContent.length; index++){
+            System.out.print(secContent[index] + " ");
+        }
+    }
 
     // Tests the method toArray while displaying the bag.
 	private static void displayBag(BagInterface<String> aBag)
