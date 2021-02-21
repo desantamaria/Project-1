@@ -8,18 +8,19 @@ public class LinkedBag<T> implements BagInterface<T>
     private Node firstNode;
     private int numberOfEntries;
    
-    //private boolean integrityOK;
+    private boolean integrityOK;
 
     public LinkedBag()
     {
         firstNode = null;
         numberOfEntries = 0;
+        integrityOK = true;    
     }
 
     public void checkIntegrity()
     {
-        //if(!integrityOK)
-            //throw new SecurityException("Array object is corrupt.");
+        if(!integrityOK)
+            throw new SecurityException("Array object is corrupt.");
     }
 
     public boolean isEmpty()

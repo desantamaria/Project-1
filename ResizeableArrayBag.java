@@ -12,7 +12,7 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
     private static final int DEFUALT_CAPACITY = 25;
     private int numberOfEntries;
 
-    //private boolean integrityOK;
+    private boolean integrityOK;
     private int MAX_CAPACITY = 30;
 
     public ResizeableArrayBag() 
@@ -21,6 +21,7 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
         @SuppressWarnings("unchecked")
         T[] tempBag = (T[])new Object[DEFUALT_CAPACITY];
         bag = tempBag;
+        integrityOK = true;
     }
     
     public ResizeableArrayBag(int desiredCapacity)
@@ -31,6 +32,7 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
             @SuppressWarnings("unchecked")
             T[] tempBag = (T[])new Object[desiredCapacity];
             bag = tempBag;
+            integrityOK = true;
         }
         else
             throw new IllegalStateException("Attempt to create a bag"
@@ -39,8 +41,8 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
 
     public void checkIntegrity()
     {
-        //if(!integrityOK)
-            //throw new SecurityException("Array object is corrupt.");
+        if(!integrityOK)
+            throw new SecurityException("Array object is corrupt.");
     }
     
     public int getCurrentSize()
