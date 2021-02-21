@@ -1,7 +1,7 @@
 /**
 Daniel Santamaria, Hope Markley
 CS2600
-2/19/21 
+2/20/21 
  */
 public class LinkedBag<T> implements BagInterface<T>
 {
@@ -145,21 +145,35 @@ public class LinkedBag<T> implements BagInterface<T>
         return result;
     }
 
+    public T bagContent(int nodeIndex)
+    {
+        @SuppressWarnings("unchecked")
+        T[] result = (T[]) new Object[numberOfEntries]; //Unchecked cast
+        int index = 0;
+        
+        Node currentNode = firstNode;
+
+        while ((index < nodeIndex) && (currentNode != null))
+        {
+            index++;
+            currentNode = currentNode.getNextNode();
+        }
+        result[index] = currentNode.getData();
+        return result[index];
+    }
+
     public BagInterface<T> union(BagInterface<T> bag2)
     {
         checkIntegrity();
-
-        //INCOMPLETE ** ERASE COMMENT ONCE FINISHED
-        
-        BagInterface<T> eveything = new ResizeableArrayBag<>();
+        BagInterface<T> eveything = new LinkedBag<>();
 
         for (int index = 0; index < this.getCurrentSize(); index++) 
         {
-            //eveything.add();
+            eveything.add(this.bagContent(index));
         }
         for (int index = 0; index < bag2.getCurrentSize(); index++) 
         {
-            //eveything.add();
+            eveything.add(bag2.bagContent(index));
         }
         return eveything;
     } 
@@ -167,10 +181,24 @@ public class LinkedBag<T> implements BagInterface<T>
     public BagInterface<T> intersection(BagInterface<T> bag2)
     {
         checkIntegrity();
+        BagInterface<T> commonItems = new ResizableArrayBag<>();
 
-        //INCOMPLETE ** ERASE COMMENT ONCE FINISHED
-
-        BagInterface<T> commonItems = new ResizeableArrayBag<>();
+        if(this.getCurrentSize() > bag2.getCurrentSize())
+        {
+            for (int index = 0; index < this.getCurrentSize(); index++) 
+            {
+                if(bag2.contains(this.bagContent(index)))
+                    commonItems.add(this.bagContent(index));    
+            }
+        }
+        else
+        {
+            for (int index = 0; index < bag2.getCurrentSize(); index++) 
+            {
+                if(this.contains(this.bagContent(index)))
+                    commonItems.add(bag2.bagContent(index));    
+            }
+        }
 
         return commonItems;
     }
@@ -178,10 +206,13 @@ public class LinkedBag<T> implements BagInterface<T>
     public BagInterface<T> difference(BagInterface<T> bag2)
     {
         checkIntegrity();
+        BagInterface<T> leftOver = new ResizableArrayBag<>();
 
-        //INCOMPLETE ** ERASE COMMENT ONCE FINISHED
-
-        BagInterface<T> leftOver = new ResizeableArrayBag<>();
+        for (int index = 0; index < this.getCurrentSize(); index++) 
+        {
+            if(!bag2.contains(this.bagContent(index)))
+                leftOver.add(this.bagContent(index));    
+        }
 
         return leftOver;
     }

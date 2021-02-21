@@ -10,14 +10,14 @@ public class ArrayBagTest
         // Adding to an initially empty bag with sufficient capacity
         System.out.println("Testing an initially empty bag with " +
                             " sufficient capacity:");
-		BagInterface<String> aBag = new ResizeableArrayBag<>();
+		BagInterface<String> aBag = new ResizableArrayBag<>();
 		String[] contentsOfBag1 = {"A", "A", "B", "A", "C", "A"};
 		testAdd(aBag, contentsOfBag1);
 
         // Filling an initially empty bag to capacity
         System.out.println("\nTesting an initially empty bag that " +
                             " will be filled to capacity:");
-		aBag = new ResizeableArrayBag<>(7);
+		aBag = new ResizableArrayBag<>(7);
 		String[] contentsOfBag2 = {"A", "B", "A", "C", "B", "C", "D",
                                  "another string"};
 		testAdd(aBag, contentsOfBag2);

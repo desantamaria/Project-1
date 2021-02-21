@@ -1,7 +1,7 @@
 /**
 Daniel Santamaria, Hope Markley
 CS2600
-2/19/21 
+2/20/21 
  */
 public interface BagInterface<T>
 {
@@ -69,6 +69,13 @@ public interface BagInterface<T>
 		@return  A newly allocated array of all the entries in the bag. Note: If the bag is empty, the returned array is empty. */
 	public T[] toArray();
 
+	
+	/** Retrieves a specific entry in the bag.
+	
+		@param index The location of the object in the bag.
+		@return The content of a bag at a specific point. */
+	public T bagContent(int index);
+	
 	/** Retrieves all entries that are in two bags.
 	
 		@param bag2 The second bag included in the union.
