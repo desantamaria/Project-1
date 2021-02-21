@@ -27,14 +27,15 @@ public class LinkedBagTest
             System.out.println("a bag that is not empty:");
       
         System.out.print("isEmpty finds the bag ");
-        if (empty && bag.isEmpty())
+        if (empty && bag.isEmpty()){
 			System.out.println("empty: OK.");
-		else if (empty)
+        } else if (empty){
 			System.out.println("not empty, but it is: ERROR.");
-		else if (!empty && bag.isEmpty())
+        }else if (!empty && bag.isEmpty()){
 			System.out.println("empty, but it is not empty: ERROR.");
-		else
-			System.out.println("not empty: OK.");      
+        }else {
+			System.out.println("not empty: OK.");   
+        }   
 	} // end testIsEmpty
    
     // Tests the method add.
@@ -43,11 +44,12 @@ public class LinkedBagTest
         System.out.print("Adding the following strings to the bag: ");
         for (int index = 0; index < content.length; index++)
         {
-            if (aBag.add(content[index]))
+            if (aBag.add(content[index])){
                 System.out.print(content[index] + " ");
-            else
+            }else{
                 System.out.print("\nUnable to add " + content[index] +
                                     " to the bag.");
+            }
         } // end for
         System.out.println();
       
