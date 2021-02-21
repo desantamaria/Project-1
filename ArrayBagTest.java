@@ -23,10 +23,17 @@ public class ArrayBagTest
 		testAdd(aBag, contentsOfBag2);
 
         //Testing the union method
+        System.out.println("\nTesting two bags whose contents will be combined into a new bag:");
+        BagInterface<String> bBag = new ResizeableArrayBag<>();
+        testAdd(bBag, contentsOfBag1);
+        //note: will be reusing the previously created bag (aBag) for this test, as it is not needed to create new ones.
+        testUnion(aBag, contentsOfBag2, bBag, contentsOfBag1);
 
 
         //Testing the intersection method
-
+        System.out.println("\nTesting the overlap of two bags:");
+        //note: same as before -- feel free to assign new values to these bags, however redundant that may be.
+        testIntersection(aBag, contentsOfBag2, bBag, contentsOfBag1);
 
         //Testing the difference method
 
@@ -53,18 +60,49 @@ public class ArrayBagTest
 		displayBag(aBag);
 	} // end testAdd
 
-    private static void testUnion(bagInterface<String> firstBag, String[] firstContent, bagInterface<String> secBag, String[] secContent){
+    private static void testUnion(BagInterface<String> firstBag, String[] firstContent, BagInterface<String> secBag, String[] secContent){
         System.out.print("Unifying the followling bags:\nBag 1: ");
         //printing first bag
-        
-        for(int index = 0; index < firstContent.length; index++){
-            System.out.print(firstContent[index] + " ");
-        }
-        System.out.print("\nBag 2: ");
+        displayBag(firstBag);
 
-        for(int index = 0; index < secContent.length; index++){
-            System.out.print(secContent[index] + " ");
-        }
+        //printing second bag
+        System.out.print("\nBag 2: ");
+        displayBag(secBag);
+
+        System.out.print("\nThe union of the bags: ");  
+        //**BUG: Exception in thread "main" java.lang.AbstractMethodError: Receiver class ResizeableArrayBag does not define or inherit an implementation of the resolved method 'abstract BagInterface union(BagInterface)' of interface BagInterface. */ 
+        displayBag(firstBag.union(secBag)); //display the union of the two bags
+    }
+
+    private static void testIntersection(BagInterface<String> firstBag, String[] firstContent, BagInterface<String> secBag, String[] secContent){
+        System.out.print("Intersecting the followling bags:\nBag 1: ");
+        //printing first bag
+        displayBag(firstBag);
+
+        //printing second bag
+        System.out.print("\nBag 2: ");
+        displayBag(secBag);
+
+        System.out.print("\nThe intersection of the bags: ");
+        displayBag(firstBag.intersection(secBag));
+    }
+
+    private static void testDifference(BagInterface<String> firstBag, String[] firstContent, BagInterface<String> secBag, String[] secContent){
+        System.out.print("Finding the difference between the following bags:\nBag 1: ");
+        //printing first bag
+        displayBag(firstBag);
+
+        //printing second bag
+        System.out.print("\nBag 2: ");
+        displayBag(secBag);
+
+        System.out.print("\nThe difference of the second bag from the first: ");
+        displayBag(firstBag.intersection(secBag));
+
+
+        System.out.print("\nNow finding the difference of the first bag from the second:\nBag 1: ");
+
+        displayBag(secBag.intersection(firstBag));
     }
 
     // Tests the method toArray while displaying the bag.
