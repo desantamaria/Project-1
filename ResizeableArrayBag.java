@@ -1,20 +1,21 @@
 /**
-Daniel Santamaria, Hope Markley
-CS2600
-2/20/21 
+@author Daniel Santamaria
+@author Hope Markley
+CS2400
+2/22/21 
  */
-
 import java.util.Arrays;
 
 public class ResizeableArrayBag<T> implements BagInterface<T>
 {
     private T[] bag;
-    private static final int DEFUALT_CAPACITY = 25;
+    private static final int DEFUALT_CAPACITY = 75;
     private int numberOfEntries;
 
     private boolean integrityOK;
     private int MAX_CAPACITY = 30;
 
+    /** Initializes the ArrayBag with the Defualt capacity and the Integrity is set to true. */
     public ResizeableArrayBag() 
     {
         numberOfEntries = 0;
@@ -24,6 +25,11 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
         integrityOK = true;
     }
     
+    /** Initializes the Arraybag with the desired capacity and the Integrity is set to true. 
+     * 
+        @param desiredCapacity  Desired capacity must be less than 75.
+        @throws IllegalStateException throws exception if the constructor 
+        attempts to create a bag with a whose capacity exceeds allowed maximum.*/
     public ResizeableArrayBag(int desiredCapacity)
     {
         if(desiredCapacity <= MAX_CAPACITY)
@@ -55,6 +61,9 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
         return numberOfEntries==0;
     }
     
+    /** Returns true if the ArrayBag is full.
+     * 
+        @return numberOfEntries == bag.length */
     public boolean isFull()
     {
         return numberOfEntries == bag.length;

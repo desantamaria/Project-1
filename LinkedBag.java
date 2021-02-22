@@ -1,7 +1,8 @@
 /**
-Daniel Santamaria, Hope Markley
-CS2600
-2/20/21 
+@author Daniel Santamaria
+@author Hope Markley
+CS2400
+2/22/21 
  */
 public class LinkedBag<T> implements BagInterface<T>
 {
@@ -10,13 +11,14 @@ public class LinkedBag<T> implements BagInterface<T>
    
     private boolean integrityOK;
 
+    /** Initializes the LinkedBag with the Defualt capacity and the Integrity is set to true. */
     public LinkedBag()
     {
         firstNode = null;
         numberOfEntries = 0;
         integrityOK = true;    
     }
-
+    
     public void checkIntegrity()
     {
         if(!integrityOK)
@@ -77,6 +79,7 @@ public class LinkedBag<T> implements BagInterface<T>
         return frequency;
     }
 
+    
     public boolean contains(T anEntry)
     {
         checkIntegrity();
@@ -188,7 +191,7 @@ public class LinkedBag<T> implements BagInterface<T>
         {
             for (int index = 0; index < this.getCurrentSize(); index++) 
             {
-                if(bag2.contains(this.bagContent(index)))
+                if(bag2.bagContent(index).equals(this.bagContent(index)))
                     commonItems.add(this.bagContent(index));    
             }
         }

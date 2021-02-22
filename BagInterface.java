@@ -1,16 +1,17 @@
 /**
-Daniel Santamaria, Hope Markley
-CS2600
-2/20/21 
+@author Daniel Santamaria
+@author Hope Markley
+CS2400
+2/22/21 
  */
 public interface BagInterface<T>
 {
     /** An interface that describes the operations of a bag of objects. */
 	
 
-	/** Checks if the ArrayBag is not corrupt 
+	/** Checks if the Bag is not corrupt 
 	    
-	 	@return  throws exception if the integrity is not there*/		 
+	 	@throws  IllegalStateException throws exception if the integrity is not there*/		 
 	public void checkIntegrity();	
 
 
@@ -73,7 +74,7 @@ public interface BagInterface<T>
 	/** Retrieves a specific entry in the bag.
 	
 		@param index The location of the object in the bag.
-		@return The content of a bag at a specific point. */
+		@return The content of a bag at a specific point "index". */
 	public T bagContent(int index);
 	
 	/** Retrieves all entries that are in two bags.
