@@ -1,7 +1,8 @@
 /**
-Daniel Santamaria, Hope Markley
-CS2600
-2/21/21 
+@author Daniel Santamaria
+@author Hope Markley
+CS2400
+2/22/21 
  */
 public class LinkedBagTest
 {
@@ -70,9 +71,6 @@ public class LinkedBagTest
         testDifference(bBag, contentsOfBag1, aBag, contentsOfBag2);
         System.out.println("");
                 
-
-        //INCOMPLETE ** ERASE COMMENT ONCE FINISHED
-   
 	} // end main
    
     
@@ -125,7 +123,6 @@ public class LinkedBagTest
         displayBag(secBag);
 
         System.out.print("\nThe union of the bags: ");  
-        //**BUG: Exception in thread "main" java.lang.AbstractMethodError: Receiver class ResizeableArrayBag does not define or inherit an implementation of the resolved method 'abstract BagInterface union(BagInterface)' of interface BagInterface. */ 
         displayBag(firstBag.union(secBag)); //display the union of the two bags
     }
 
