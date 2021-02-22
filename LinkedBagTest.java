@@ -18,7 +18,7 @@ public class LinkedBagTest
 
         // Filling an initially empty bag to capacity
         System.out.println("\nTesting an initially empty bag 2");
-		BagInterface<String> bBag = new ResizeableArrayBag<>();
+		BagInterface<String> bBag = new LinkedBag<>();
         String[] contentsOfBag2 = {"A", "B", "B", "B", "D", "D"};
         testAdd(bBag, contentsOfBag2);
 
