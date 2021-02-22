@@ -110,7 +110,7 @@ public class LinkedBagTest
         displayBag(secBag);
 
         System.out.print("\nThe difference of the second bag from the first: ");
-        displayBag(firstBag.intersection(secBag));
+        displayBag(firstBag.difference(secBag));
 
         System.out.println("");
     }
