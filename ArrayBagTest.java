@@ -28,28 +28,28 @@ public class ArrayBagTest
 
         //Testing the union method
         //note: will be reusing the previously created bag (aBag) for this test, as it is not needed to create new ones.
-        testUnion(aBag, contentsOfBag2, bBag, contentsOfBag1);
+        testUnion(aBag, contentsOfBag1, bBag, contentsOfBag2);
         System.out.println("");
 
-        testUnion(bBag, contentsOfBag1, aBag, contentsOfBag2);
+        testUnion(bBag, contentsOfBag2, aBag, contentsOfBag1);
         System.out.println("");
 
         
         //Testing the intersection method
         //note: same as before -- feel free to assign new values to these bags, however redundant that may be.
-        testIntersection(aBag, contentsOfBag2, bBag, contentsOfBag1);
+        testIntersection(aBag, contentsOfBag1, bBag, contentsOfBag2);
         System.out.println("");
 
-        testIntersection(bBag, contentsOfBag1, aBag, contentsOfBag2);
+        testIntersection(bBag, contentsOfBag2, aBag, contentsOfBag1);
         System.out.println("");
         
         
         //Testing the difference method
         //note: same as before -- feel free to assign new values to these bags, however redundant that may be.
-        testDifference(aBag, contentsOfBag2, bBag, contentsOfBag1);
+        testDifference(aBag, contentsOfBag1, bBag, contentsOfBag2);
         System.out.println("");
 
-        testDifference(bBag, contentsOfBag1, aBag, contentsOfBag2);
+        testDifference(bBag, contentsOfBag2, aBag, contentsOfBag1);
         System.out.println("");
 
 	} // end main
@@ -112,11 +112,6 @@ public class ArrayBagTest
 
         System.out.print("\nThe difference of the second bag from the first: ");
         displayBag(firstBag.intersection(secBag));
-
-
-        System.out.print("\nNow finding the difference of the first bag from the second:\nBag 1: ");
-
-        displayBag(secBag.intersection(firstBag));
 
         System.out.println("");
     }
