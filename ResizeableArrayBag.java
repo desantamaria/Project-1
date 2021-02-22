@@ -223,7 +223,7 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
         {
             for (int index = 0; index < this.getCurrentSize(); index++) 
             {
-                if(!(bag2.getFrequencyOf(bag [index]) == 1))
+                if((bag2.getFrequencyOf(bag [index]) == 1))
                     commonItems.add(bag [index]);    
             }
         }
@@ -245,8 +245,8 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
 
         for (int index = 0; index < this.getCurrentSize(); index++) 
         {
-            if(!bag2.contains(bag [index]))
-                leftOver.add(bag [index]);    
+            if(!bag2.contains(this.bagContent(index)))
+                leftOver.add(this.bagContent(index));    
         }
         return leftOver;
     }
