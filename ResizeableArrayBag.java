@@ -259,10 +259,13 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
 
         for (int index = 0; index < this.getCurrentSize(); index++) 
         {
-            if(bag2.getFrequencyOf(this.bagContent(index)) < this.getFrequencyOf(this.bagContent(index)))
-            {
+            if(bag2.getFrequencyOf(this.bagContent(index)) < this.getFrequencyOf(this.bagContent(index)) && 
+            (leftOver.getFrequencyOf(this.bagContent(index)) + 1 != bag2.getFrequencyOf(this.bagContent(index)))){
+                
                 leftOver.add(this.bagContent(index));    
+                 
             }    
+
         }
         return leftOver;
     }

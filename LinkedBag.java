@@ -225,16 +225,13 @@ public class LinkedBag<T> implements BagInterface<T>
     {
         // checkIntegrity();
         BagInterface<T> leftOver = new ResizeableArrayBag<>();
-        BagInterface<T> tempBag = new ResizeableArrayBag<>(); //store all items from 
 
         for (int index = 0; index < this.getCurrentSize(); index++) 
         {
-            if(bag2.getFrequencyOf(this.bagContent(index)) < this.getFrequencyOf(this.bagContent(index)))
+            if(bag2.getFrequencyOf(this.bagContent(index)) < this.getFrequencyOf(this.bagContent(index)) && 
+            (leftOver.getFrequencyOf(this.bagContent(index)) + 1 != bag2.getFrequencyOf(this.bagContent(index))))
             {
-                if(leftOver.getFrequencyOf(this.bagContent(index)) + 1 != bag2.getFrequencyOf(this.bagContent(index))){ //if there are already as many instances of that item as there are in the initial bag, 
-                    leftOver.add(this.bagContent(index));
-                }
-                 
+                leftOver.add(this.bagContent(index));   
             }    
 
         }
