@@ -31,16 +31,10 @@ public class ArrayBagTest
         testUnion(aBag, contentsOfBag1, bBag, contentsOfBag2);
         System.out.println("");
 
-        testUnion(bBag, contentsOfBag2, aBag, contentsOfBag1);
-        System.out.println("");
-
         
         //Testing the intersection method
         //note: same as before -- feel free to assign new values to these bags, however redundant that may be.
         testIntersection(aBag, contentsOfBag1, bBag, contentsOfBag2);
-        System.out.println("");
-
-        testIntersection(bBag, contentsOfBag2, aBag, contentsOfBag1);
         System.out.println("");
         
         

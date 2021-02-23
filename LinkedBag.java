@@ -196,23 +196,43 @@ public class LinkedBag<T> implements BagInterface<T>
     {
         checkIntegrity();
         BagInterface<T> commonItems = new ResizeableArrayBag<>();
+        int largestInstance;
 
-        if(this.getCurrentSize() >= bag2.getCurrentSize())
+        if(this.getCurrentSize() >= bag2.getCurrentSize()) //figuring out how big to make the final bag / how many times to loop
         {
+            
             for (int index = 0; index < this.getCurrentSize(); index++) 
             {
-                if((bag2.getFrequencyOf(this.bagContent(index)) > 1))
-                    commonItems.add(this.bagContent(index));    
+                if (bag2.getFrequencyOf(this.bagContent(index)) < this.getFrequencyOf(this.bagContent(index))){
+                    largestInstance = this.getFrequencyOf(this.bagContent(index));
+                }else {
+                    largestInstance = bag2.getFrequencyOf(this.bagContent(index));
+                }
+
+                if((bag2.getFrequencyOf(this.bagContent(index)) > 1) && 
+                (commonItems.getFrequencyOf(this.bagContent(index)) + 1 < 
+                (largestInstance))){
+                    commonItems.add(this.bagContent(index));   
+                } 
             }
-        }
-        else
+        } else
         {
             for (int index = 0; index < bag2.getCurrentSize(); index++) 
             {
-                if(this.getFrequencyOf(bag2.bagContent(index)) > 1)    
+                if (bag2.getFrequencyOf(bag2.bagContent(index)) < this.getFrequencyOf(bag2.bagContent(index))){
+                    largestInstance = this.getFrequencyOf(bag2.bagContent(index));
+                }else {
+                    largestInstance = bag2.getFrequencyOf(bag2.bagContent(index));
+                }
+
+                if((this.getFrequencyOf(bag2.bagContent(index)) > 1) && 
+                (commonItems.getFrequencyOf(bag2.bagContent(index)) < 
+                (largestInstance))){
                     commonItems.add(bag2.bagContent(index));
+                }
             } 
         }
+        
         return commonItems;
     }
 
