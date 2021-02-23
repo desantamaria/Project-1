@@ -296,8 +296,7 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
                 else 
                     largestInstance = bag2.getFrequencyOf(this.bagContent(index));
 
-                if((bag2.getFrequencyOf(this.bagContent(index)) > 1) && 
-                (commonItems.getFrequencyOf(this.bagContent(index)) + 1 < (largestInstance)))
+                if((bag2.getFrequencyOf(this.bagContent(index)) > 1) && (commonItems.getFrequencyOf(this.bagContent(index)) + 1 < (largestInstance)))
                     commonItems.add(this.bagContent(index));                   
             }
         } 
