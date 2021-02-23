@@ -198,6 +198,11 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
 
     }
 
+    /**<p>The Union method retrieves the every item in both bags that are stated.</p>
+     * @param bag2 The second bag to be compared.
+     * @return a bag object containing every item from both bags.
+     */
+
     public BagInterface<T> union(BagInterface<T> bag2)
     {
         checkIntegrity();
@@ -211,9 +216,13 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
         {
             eveything.add(bag2.bagContent(index));
         }
-        return eveything;
+        return eveything; //BUG??**
     } 
 
+    /** <p>The Intersection method retrieves the entries that appear in both bags that are stated.</p>
+     * @param bag2 the second bag object to be compared in the intersection
+     * @return a bag object containing common items from each bag
+     */
     public BagInterface<T> intersection(BagInterface<T> bag2)
     {
         checkIntegrity();
@@ -239,6 +248,10 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
         return commonItems;
     }
 
+    /**<p>The Difference method retrieves the entries that appear in both bags that are stated.</p>
+     * @param bag2 the second bag to be compared
+     * @return a bag object containing the items left over
+     */
     public BagInterface<T> difference(BagInterface<T> bag2)
     {
         checkIntegrity();

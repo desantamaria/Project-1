@@ -8,12 +8,13 @@ public class LinkedBagTest
 {
     public static void main(String[] args) 
 	{
-        System.out.println("");
+        
+        System.out.println("This is a test for the LinkedBag class.\n");
 
         // Adding to an initially empty bag with sufficient capacity
         System.out.println("Testing an initially empty bag 1");
 		BagInterface<String> aBag = new LinkedBag<>();
-		String[] contentsOfBag1 = {"A", "B", "B", "C", "D", "D", "D"};
+		String[] contentsOfBag1 = {"A", "B", "B", "C", "D", "D"};
 		testAdd(aBag, contentsOfBag1);
 
         // Filling an initially empty bag to capacity
@@ -29,16 +30,10 @@ public class LinkedBagTest
         testUnion(aBag, contentsOfBag1, bBag, contentsOfBag2);
         System.out.println("");
 
-        testUnion(bBag, contentsOfBag2, aBag, contentsOfBag1);
-        System.out.println("");
-
     
         //Testing the intersection method
         //note: same as before -- feel free to assign new values to these bags, however redundant that may be.
         testIntersection(aBag, contentsOfBag1, bBag, contentsOfBag2);
-        System.out.println("");
-
-        testIntersection(bBag, contentsOfBag2, aBag, contentsOfBag1);
         System.out.println("");
         
         

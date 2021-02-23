@@ -8,7 +8,7 @@ public class ArrayBagTest
 {
     public static void main(String[] args) 
 	{
-        System.out.println("");
+        System.out.println("This is a test for the ResizableArrayBag class.\n");
 
         // Adding to an initially empty bag with sufficient capacity
         System.out.println("Testing an initially empty bag 1 with " +

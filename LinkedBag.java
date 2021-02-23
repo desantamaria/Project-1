@@ -166,6 +166,11 @@ public class LinkedBag<T> implements BagInterface<T>
         return result[index];
     }
 
+    /** <p>The Union method retrieves the every item in both bags that are stated.</p>
+     * @param bag2 The second bag to be compared.
+     * @return a bag object containing every item from both bags.
+     */
+
     public BagInterface<T> union(BagInterface<T> bag2)
     {
         checkIntegrity();
@@ -181,6 +186,11 @@ public class LinkedBag<T> implements BagInterface<T>
         }
         return eveything;
     } 
+
+    /** <p>The Intersection method retrieves the entries that appear in both bags that are stated.</p>
+     * @param bag2 the second bag object to be compared in the intersection
+     * @return a bag object containing common items from each bag
+     */
 
     public BagInterface<T> intersection(BagInterface<T> bag2)
     {
@@ -206,9 +216,15 @@ public class LinkedBag<T> implements BagInterface<T>
         return commonItems;
     }
 
+    /**
+     * <p>The Difference method retrieves the entries that appear in both bags that are stated.</p>
+     * @param bag2 the second bag to be compared
+     * @return a bag object containing the items left over
+     */
+    
     public BagInterface<T> difference(BagInterface<T> bag2)
     {
-        checkIntegrity();
+        // checkIntegrity();
         BagInterface<T> leftOver = new ResizeableArrayBag<>();
 
         for (int index = 0; index < this.getCurrentSize(); index++) 
@@ -217,6 +233,7 @@ public class LinkedBag<T> implements BagInterface<T>
             {
                 leftOver.add(this.bagContent(index)); 
             }    
+
         }
         return leftOver;
     }
