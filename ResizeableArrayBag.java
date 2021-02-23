@@ -243,7 +243,8 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
                 (commonItems.getFrequencyOf(this.bagContent(index)) + 1 < (largestInstance)))
                     commonItems.add(this.bagContent(index));                   
             }
-        } else
+        } 
+        else
         {
             for (int index = 0; index < bag2.getCurrentSize(); index++) 
             {
