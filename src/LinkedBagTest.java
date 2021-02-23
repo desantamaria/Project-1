@@ -1,8 +1,8 @@
+package src;
+
 /**
-@author Daniel Santamaria
-@author Hope Markley
-CS2400
-2/22/21 
+ * @author Daniel Santamaria
+ * @author Hope Markley CS2400 2/22/21
  */
 public class LinkedBagTest
 {
