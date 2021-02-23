@@ -289,33 +289,29 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
             
             for (int index = 0; index < this.getCurrentSize(); index++) 
             {
-                if (bag2.getFrequencyOf(this.bagContent(index)) < this.getFrequencyOf(this.bagContent(index))){
+                if (bag2.getFrequencyOf(this.bagContent(index)) < this.getFrequencyOf(this.bagContent(index)))
                     largestInstance = this.getFrequencyOf(this.bagContent(index));
-                }else {
+                else 
                     largestInstance = bag2.getFrequencyOf(this.bagContent(index));
-                }
 
                 if((bag2.getFrequencyOf(this.bagContent(index)) > 1) && 
-                (commonItems.getFrequencyOf(this.bagContent(index)) + 1 < 
-                (largestInstance))){
-                    commonItems.add(this.bagContent(index));   
-                } 
+                (commonItems.getFrequencyOf(this.bagContent(index)) + 1 < (largestInstance)))
+                    commonItems.add(this.bagContent(index));                   
             }
-        } else
+        } 
+        else
         {
             for (int index = 0; index < bag2.getCurrentSize(); index++) 
             {
-                if (bag2.getFrequencyOf(bag2.bagContent(index)) < this.getFrequencyOf(bag2.bagContent(index))){
+                if (bag2.getFrequencyOf(bag2.bagContent(index)) < this.getFrequencyOf(bag2.bagContent(index)))
                     largestInstance = this.getFrequencyOf(bag2.bagContent(index));
-                }else {
+                else 
                     largestInstance = bag2.getFrequencyOf(bag2.bagContent(index));
-                }
+                
 
                 if((this.getFrequencyOf(bag2.bagContent(index)) > 1) && 
-                (commonItems.getFrequencyOf(bag2.bagContent(index)) < 
-                (largestInstance))){
+                (commonItems.getFrequencyOf(bag2.bagContent(index)) < (largestInstance)))
                     commonItems.add(bag2.bagContent(index));
-                }
             } 
         }
         
