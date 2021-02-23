@@ -51,11 +51,19 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
             throw new SecurityException("Array object is corrupt.");
     }
     
+    
+    /** return the current size of the bag
+     * @return numberOfEntries
+     */
     public int getCurrentSize()
     {
         return numberOfEntries;
     }
     
+    
+    /** return whether the bag is empty
+     * @return numberOfEntries==0
+     */
     public boolean isEmpty()
 	{
         return numberOfEntries==0;
@@ -69,6 +77,11 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
         return numberOfEntries == bag.length;
     }
 
+    
+    /** 
+     * @param newEntry
+     * @return boolean
+     */
     public boolean add(T newEntry)
 	{
         checkIntegrity();
@@ -85,6 +98,10 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
         return result;
     }
 
+    
+    /** 
+     * @param capacity
+     */
     private void checkCapacity(int capacity)
     {
         if(capacity > MAX_CAPACITY)
@@ -100,6 +117,10 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
         bag = Arrays.copyOf(bag, newLength);
     }
 
+    
+    /** part of the process to remove an item from the bag
+     * @return result
+     */
     public T remove()
 	{
         checkIntegrity();
@@ -107,6 +128,11 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
         return result;
     }
 
+    
+    /** remove an item from the bag
+     * @param anEntry
+     * @return true if successful
+     */
     public boolean remove(T anEntry)
     {
         checkIntegrity();
@@ -116,6 +142,11 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
         return anEntry.equals(result);
     }
 
+    
+    /** find the index of the given item
+     * @param anEntry
+     * @return index location of the item
+     */
     private int getIndexOf(T anEntry)
     {
         int where =-1;
@@ -134,6 +165,11 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
         return where;
     }
 
+    
+    /** remove an item at the given index
+     * @param givenIndex
+     * @return item removed
+     */
     private T removeEntry(int givenIndex) 
     {
         T result = null;
@@ -155,6 +191,11 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
             remove();
     }
 
+    
+    /** 
+     * @param anEntry
+     * @return int
+     */
     public int getFrequencyOf(T anEntry)
 	{
         checkIntegrity();
@@ -170,6 +211,11 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
         return counter;
     }
 
+    
+    /** 
+     * @param anEntry
+     * @return boolean
+     */
     public boolean contains(T anEntry)
 	{
         checkIntegrity();
@@ -177,6 +223,10 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
 
     }
 
+    
+    /** bag to an array
+     * @return T[]
+     */
     public T[] toArray()
     {
         @SuppressWarnings("unchecked")
@@ -188,6 +238,11 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
         return result;
     }
 
+    
+    /** return the item at the given index
+     * @param index
+     * @return T the item
+     */
     public T bagContent(int index)
     {
         @SuppressWarnings("unchecked")

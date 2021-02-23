@@ -14,14 +14,16 @@ public class ArrayBagTest
         System.out.println("Testing an initially empty bag 1 with " +
                             " sufficient capacity:");
 		BagInterface<String> aBag = new ResizeableArrayBag<>(7);
-		String[] contentsOfBag1 = {"A", "B", "B", "C", "D", "D", "D"};
+		// String[] contentsOfBag1 = {"A", "B", "B", "C", "D", "D", "D"};
+        String[] contentsOfBag1 = {"B", "A", "E", "F", "C", "G"};
 		testAdd(aBag, contentsOfBag1);
 
         // Filling an initially empty bag to capacity
         System.out.println("\nTesting an initially empty bag 2 that " +
                             " will be filled to capacity:");
 		BagInterface<String> bBag = new ResizeableArrayBag<>(6);
-        String[] contentsOfBag2 = {"A", "B", "B", "B", "D", "D"};
+        // String[] contentsOfBag2 = {"A", "B", "B", "B", "D", "D"};
+        String[] contentsOfBag2 = {"A", "B", "B", "C", "D", "C"};
         testAdd(bBag, contentsOfBag2);
 
         System.out.println("");
